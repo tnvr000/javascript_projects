@@ -5,8 +5,8 @@ var ready = (callback) => {
     document.addEventListener("DOMContentLoaded", callback);
 };
 
-var imgSun = "/assets/images/sun.svg"
-var imgMoon = "/assets/images/moon.svg"
+var imgSun = "assets/images/sun.svg"
+var imgMoon = "assets/images/moon.svg"
 
 ready(() => {
   var imgMode = document.getElementById('imgMode');
