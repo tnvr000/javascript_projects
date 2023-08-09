@@ -12,13 +12,10 @@ body.dark {
   justify-content: center;
   align-items: start;
   position: relative;
-  min-width: 500px;
 }
 
 .hero img {
   width: 100%;
-  /* max-width: 100vw; */
-  /* max-height: 100vh; */
   height: auto;
 }
 
@@ -27,7 +24,7 @@ body.dark {
   display: flex;
   align-items: center;
   justify-content: center;
-  min-width: 500px;
+  font-size: 1.5em;
 }
 
 .projects {
