@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
+  <title>Counter</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      background: #f1f5f8;
+    }
+
+    main {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 25px;
+    }
+
+    .value {
+      font-size: 75px;
+    }
+
+    .negative {
+      color: crimson;
+    }
+
+    .zero {
+      color: dodgerblue
+    }
+
+    .positive {
+      color: lawngreen;
+    }
+
+    .buttons button {
+      padding: 10px 20px;
+      font-size: 20px;
+      border: 5px solid black;
+      border-radius: 15px;
+      cursor: pointer;
+      background-color: transparent;
+      font-weight: bold;
+      transition: 1000ms;
+    }
+
+    .buttons button:hover {
+      background-color: black;
+      color: #f1f5f8;
+      transition: 250ms;
+    }
+  </style>
+  <script type="text/javascript">
+    const ready = (callback) => {
+      if (document.readyState != 'loading') {
+        callback();
+      } else {
+        document.addEventListener("DOMContentLoaded", callback)
+      }
+    }
+
+    let count = 0;
+    let activeClass = 'zero'
+
+    const changeColor = (count, value) => {
+      let newClass = '';
+      if (count < 0) {
+        newClass = 'negative';
+      } else if (count === 0) {
+        newClass = 'zero';
+      } else {
+        newClass = 'positive'
+      }
+
+      value.classList.remove(activeClass);
+      value.classList.add(newClass);
+      activeClass = newClass;
+    }
+
+    ready(() => {
+      const value = document.getElementById('value');
+
+      document.getElementById('btnDecrease').onclick = () => {
+        count--;
+        changeColor(count, value);
+        value.innerHTML = count;
+      }
+
+      document.getElementById('btnReset').onclick = () => {
+        count = 0;
+        changeColor(count, value);
+        value.innerHTML = count;
+      }
+
+      document.getElementById('btnIncrease').onclick = () => {
+        count++;
+        changeColor(count, value);
+        value.innerHTML = count;
+      }
+    })
+
+  </script>
+</head>
+
+<body>
+  <main>
+    <h1 class="heading">COUNTER</h1>
+    <span id="value" class="value zero">0</span>
+    <div class="buttons">
+      <button id="btnDecrease">DECREASE</button>
+      <button id="btnReset">RESET</button>
+      <button id="btnIncrease">INCREASE</button>
+    </div>
+  </main>
+</body>
+
+</html>
