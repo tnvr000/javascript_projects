@@ -140,13 +140,82 @@
       }
     }
 
+    const reviews = [
+      {
+        id: 1,
+        name: 'Susan Smith',
+        job: 'web Developer',
+        image: 'assets/images/avatar1.png',
+        text: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Adipisci aperiam ea repellat quisquam iusto et consequuntur! Obcaecati eum ea, iusto dicta blanditiis expedita commodi eius pariatur facere voluptatum eligendi culpa."
+      }, {
+        id: 2,
+        name: 'Andy Johnson',
+        job: 'web Designer',
+        image: 'assets/images/avatar2.png',
+        text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam qui tenetur iusto repellat, perspiciatis nobis distinctio ab itaque, rerum accusamus sapiente natus ipsam, numquam aperiam optio dolores expedita laborum fuga!"
+      }, {
+        id: 3,
+        name: 'peter Jones',
+        job: 'Intern',
+        image: 'assets/images/avatar3.png',
+        text: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eveniet voluptatem labore temporibus rem expedita consequatur nobis, sint perferendis sunt, mollitia quod laborum eius reprehenderit ipsa ipsum aspernatur eum molestiae iste."
+      }, {
+        id: 4,
+        name: 'Bill Anderson',
+        job: 'CEO',
+        image: 'assets/images/avatar4.png',
+        text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias, quod quae iusto omnis alias recusandae consequuntur officiis eum maxime est error nulla. Explicabo quae recusandae quaerat necessitatibus odio culpa esse."
+      }
+    ]
+
+    let currentReview = 0;
+
     ready(() => {
-      console.log('hi');
+      const image = document.getElementById('image');
+      const name = document.getElementById('name');
+      const job = document.getElementById('job');
+      const info = document.getElementById('info');
+      const buttonPrev = document.getElementById('buttonPrev');
+      const buttonNext = document.getElementById('buttonNext')
+      const buttonRandom = document.getElementById('buttonRandom');
+
+      const changePerson = (person) => {
+        image.src = person.image;
+        name.innerHTML = person.name;
+        job.innerHTML = person.job;
+        info.innerHTML = person.text
+      }
+
+      changePerson(reviews[currentReview]);
+
+      buttonNext.onclick = () => {
+        currentReview++;
+        currentReview = currentReview >= reviews.length ? 0 : currentReview;
+
+        changePerson(reviews[currentReview]);
+      }
+
+      buttonPrev.onclick = () => {
+        currentReview--;
+        currentReview = currentReview < 0 ? reviews.length - 1 : currentReview;
+
+        changePerson(reviews[currentReview]);
+      }
+
+      buttonRandom.onclick = () => {
+        let newReview;
+        do {
+          newReview = Math.floor(Math.random() * reviews.length);
+        } while(currentReview === newReview);
+        currentReview = newReview;
+        changePerson(reviews[currentReview]);
+      }
     })
   </script>
 </head>
 
 <body>
+
   <main>
     <div class="container">
       <div class="title">
@@ -154,21 +223,18 @@
       </div>
       <article class="review">
         <div class="img-container">
-          <img src="assets/images/avatar.png" alt="avatar">
+          <img id="image" src="" alt="avatar">
         </div>
-        <span class="name">John Deo</span>
-        <span class="job">UX Developer</span>
-        <div class="info">
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Blanditiis aliquam iste nisi, fuga, consequatur quae
-          dolor labore voluptatibus sed odit cumque. Aperiam eveniet odit, provident placeat repudiandae illum atque
-          quam.
+        <span id="name" class="name"></span>
+        <span id="job" class="job"></span>
+        <div id="info" class="info">
         </div>
         <div class="buttons-group">
-          <button id="buttonLeft" class="navigation-button"><</button>
-          <button id="buttonRight" class="navigation-button">></button>
+          <button id="buttonPrev" class="navigation-button"><</button>
+          <button id="buttonNext" class="navigation-button">></button>
         </div>
         <div class="buttons-group">
-          <button id="random" class="random-button">Surprise Me</button>
+          <button id="buttonRandom" class="random-button">Surprise Me</button>
         </div>
       </article>
     </div>
