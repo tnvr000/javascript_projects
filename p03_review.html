@@ -15,14 +15,13 @@
     body {
       margin: 0;
       padding: 0;
-      height: 100%;
+      background-color: #F1F5F8;
     }
 
     main {
       display: flex;
       align-items: center;
       justify-content: center;
-      background-color: #F1F5F8;
     }
 
     .container {
@@ -31,6 +30,7 @@
       justify-content: center;
       align-items: center;
       flex-direction: column;
+      gap: 25px;
     }
 
     .container .title {
@@ -42,7 +42,7 @@
 
     .container .title::after {
       content: '';
-      width: 35%;
+      width: 50%;
       height: 5px;
       background-color: dodgerblue;
       border-radius: 15px;
@@ -57,6 +57,11 @@
       padding: 15px;
       box-shadow: 5px 5px 10px 3px rgba(0, 0, 0, 0.5);
       border-radius: 15px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 10px;
     }
 
     .review .img-container {
@@ -77,6 +82,8 @@
 
     .review .name {
       text-align: center;
+      font-size: 24px;
+      letter-spacing: 2px;
     }
 
     .review .job {
@@ -87,6 +94,41 @@
     .review .info {
       text-align: center;
       padding: 10px 10px;
+      letter-spacing: 1px;
+    }
+
+    .review .buttons-group {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px
+    }
+
+    .buttons-group .navigation-button {
+      background-color: transparent;
+      border: 0;
+      font-size: 24px;
+      color: darkgray;
+      cursor: pointer;
+    }
+
+    .buttons-group .navigation-button:hover {
+      color: dodgerblue;
+    }
+
+    .buttons-group .random-button {
+      background-color: transparent;
+      padding: 5px 10px;
+      border: 3px solid dodgerblue;
+      border-radius: 10px;
+      font-weight: bold;
+      color: dodgerblue;
+      transition: 100ms;
+      cursor: pointer;
+    }
+
+    .buttons-group .random-button:hover {
+      background-color: dodgerblue;
+      color: white;
     }
   </style>
   <script type="text/javascript">
@@ -114,13 +156,20 @@
         <div class="img-container">
           <img src="assets/images/avatar.png" alt="avatar">
         </div>
-        <h4 class="name">John Deo</h4>
-        <p class="job">UX Developer</p>
-        <p class="info">
+        <span class="name">John Deo</span>
+        <span class="job">UX Developer</span>
+        <div class="info">
           Lorem ipsum dolor sit, amet consectetur adipisicing elit. Blanditiis aliquam iste nisi, fuga, consequatur quae
           dolor labore voluptatibus sed odit cumque. Aperiam eveniet odit, provident placeat repudiandae illum atque
           quam.
-        </p>
+        </div>
+        <div class="buttons-group">
+          <button id="buttonLeft" class="navigation-button"><</button>
+          <button id="buttonRight" class="navigation-button">></button>
+        </div>
+        <div class="buttons-group">
+          <button id="random" class="random-button">Surprise Me</button>
+        </div>
       </article>
     </div>
   </main>
