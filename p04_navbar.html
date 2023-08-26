@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Navbar</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="assets/images/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="assets/css/font_awesome.css">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      background-color: #F1F5F8;
+    }
+
+    .nav-center {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      background-color: #FFF;
+      box-shadow: 0px 1px 10px 2px rgba(0, 0, 0, 0.5);
+    }
+
+    .nav-header {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px;
+      width: 100%;
+    }
+
+    .nav-center .nav-header .nav-toggle {
+      background-color: transparent;
+      border: 3px solid transparent;
+      color: dodgerblue;
+      font-weight: bold;
+      font-size: 32px;
+      transition: 250ms;
+    }
+
+    .nav-center .nav-header .nav-toggle:hover {
+      rotate: 90deg;
+    }
+
+    .nav-center .nav-links {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      transition: 250ms;
+    }
+
+    .hide-links {
+      height: 0;
+    }
+
+    .nav-center .nav-links .nav-link {
+      padding: 8px 20px;
+      display: block;
+      text-decoration: none;
+      color: black;
+      font-size: 24px;
+      transition: 250ms;
+    }
+
+    .nav-center .nav-links .nav-link:hover {
+      background-color: dodgerblue;
+      padding-left: 25px;
+      color: #F1F5F8;
+    }
+
+    .nav-center .nav-icon-links {
+      display: none;
+    }
+  </style>
+  <script type="text/javascript"></script>
+  
+</head>
+<body>
+  <header>
+    <nav class="nav-center">
+      <div class="nav-header">
+        <img src="assets/images/code_addict.svg" alt="logo">
+        <button class="nav-toggle"><i class="fas fa-bars"></i></button>
+      </div>
+      <ul class="nav-links hide-links">
+        <li>
+          <a class="nav-link" href="#">Home</a>
+        </li>
+        <li>
+          <a class="nav-link" href="#">About</a>
+        </li>
+        <li>
+          <a class="nav-link" href="#">Projects</a>
+        </li>
+        <li>
+          <a class="nav-link" href="#">Contact</a>
+        </li>
+      </ul>
+      <ul class="nav-icon-links">
+        <li>
+          <a href="#" class="nav-icon-link">
+            <i class="fab fa-facebook"></i>
+          </a>
+        </li>
+        <li>
+          <a href="#" class="nav-icon-link">
+            <i class="fab fa-twitter"></i>
+          </a>
+        </li>
+        <li>
+          <a href="#" class="nav-icon-link">
+            <i class="fab fa-linkedin"></i>
+          </a>
+        </li>
+        <li>
+          <a href="#" class="nav-icon-link">
+            <i class="fab fa-sketch"></i>
+          </a>
+        </li>
+        <li>
+          <a href="#" class="nav-icon-link">
+            <i class="fab fa-stack-overflow"></i>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+</body>
+</html>
