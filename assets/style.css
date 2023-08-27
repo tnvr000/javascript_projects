@@ -48,7 +48,7 @@ body.dark {
   box-shadow: 7px 7px 5px -3px var(--font-color);
 }
 
-.projects .project h3 {
+.projects .project h3, p {
   text-align: center;
 }
 
