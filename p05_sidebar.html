@@ -46,11 +46,11 @@
       z-index: 2;
       transform: translate(-100%);
     }
-    
+
     .show-sidebar {
       transform: translate(0);
     }
-    
+
     @media (min-width: 768px) {
       .sidebar {
         width: 325px;
@@ -114,14 +114,38 @@
       width: 100%
     }
   </style>
+
+  <script type="text/javascript">
+    const ready = (callback) => {
+      if (document.readyState != 'loading') {
+        callback();
+      } else {
+        document.addEventListener('DOMContentLoaded', callback);
+      }
+    }
+
+    ready(() => {
+      const btnToggleSidebar = document.getElementById('btnToggleSidebar');
+      const btnCloseSidebar = document.getElementById('btnCloseSidebar');
+      const sidebar = document.getElementById('sidebar');
+
+      btnCloseSidebar.onclick = function () {
+        sidebar.classList.remove('show-sidebar');
+      }
+
+      btnToggleSidebar.onclick = function () {
+        sidebar.classList.toggle('show-sidebar');
+      }
+    })
+  </script>
 </head>
 
 <body>
   <div>
-    <aside class="sidebar">
+    <aside id="sidebar" class="sidebar">
       <div class="sidebar-header">
         <img src="assets/images/code_addict.svg" alt="">
-        <button class="sidebar-close">
+        <button id="btnCloseSidebar" class="sidebar-close">
           <i class="fas fa-times"></i>
         </button>
       </div>
@@ -157,7 +181,7 @@
         </li>
       </ul>
     </aside>
-    <button class="sidebar-toggle"><i class="fas fa-bars"></i></button>
+    <button id="btnToggleSidebar" class="sidebar-toggle"><i class="fas fa-bars"></i></button>
   </div>
 </body>
 
