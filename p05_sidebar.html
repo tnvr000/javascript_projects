@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Sidebar | Javascript Projects</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="shortcut icon" href="assets/images/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="assets/css/font_awesome.css" type="text/css">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      position: relative;
+    }
+
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+    }
+
+    .sidebar-toggle {
+      background-color: transparent;
+      border: 2px solid transparent;
+      font-size: 36px;
+      color: dodgerblue;
+      padding: 20px;
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      right: 0;
+      z-index: 1;
+    }
+
+    .sidebar {
+      background-color: aliceblue;
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      transition: 250ms;
+      z-index: 2;
+      transform: translate(-100%);
+    }
+    
+    .show-sidebar {
+      transform: translate(0);
+    }
+    
+    @media (min-width: 768px) {
+      .sidebar {
+        width: 325px;
+        box-shadow: 5px 0px 15px 2px rgba(0, 0, 0, 0.5);
+      }
+    }
+
+    .sidebar .sidebar-header {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      padding: 0 10px;
+      align-items: center;
+    }
+
+    .sidebar .sidebar-header img {
+      height: 100%;
+      width: auto;
+    }
+
+    .sidebar .sidebar-header .sidebar-close {
+      font-size: 30px;
+      color: red;
+      background-color: transparent;
+      border: 0;
+      padding: 5px;
+      cursor: pointer;
+    }
+
+    .sidebar .links {
+      list-style-type: none;
+      display: flex;
+      flex-direction: column;
+      padding: 0;
+    }
+
+    .sidebar .links li a {
+      text-decoration: none;
+      padding: 7px 20px;
+      font-size: 24px;
+      display: block;
+      color: black;
+      transition: 750ms;
+    }
+
+    .sidebar .links li a:hover {
+      background-color: dodgerblue;
+      color: white;
+      padding-left: 25px;
+      transition: 250ms;
+    }
+
+    .sidebar .social-icons {
+      position: absolute;
+      bottom: 0;
+      display: flex;
+      list-style-type: none;
+      gap: 20px;
+      justify-content: center;
+      padding: 0;
+      width: 100%
+    }
+  </style>
+</head>
+
+<body>
+  <div>
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <img src="assets/images/code_addict.svg" alt="">
+        <button class="sidebar-close">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <ul class="links">
+        <li>
+          <a href="#">Home</a>
+        </li>
+        <li>
+          <a href="#">About</a>
+        </li>
+        <li>
+          <a href="#">Projects</a>
+        </li>
+        <li>
+          <a href="#">Contact</a>
+        </li>
+      </ul>
+      <ul class="social-icons">
+        <li>
+          <a href="#"><i class="fab fa-facebook"></i></a>
+        </li>
+        <li>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+        </li>
+        <li>
+          <a href="#"><i class="fab fa-linkedin"></i></a>
+        </li>
+        <li>
+          <a href="#"><i class="fab fa-stack-overflow"></i></a>
+        </li>
+        <li>
+          <a href="#"><i class="fab fa-github"></i></a>
+        </li>
+      </ul>
+    </aside>
+    <button class="sidebar-toggle"><i class="fas fa-bars"></i></button>
+  </div>
+</body>
+
+</html>
